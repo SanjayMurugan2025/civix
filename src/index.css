@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+/* CivicFix design tokens */
+:root {
+  --cf-emerald: #047857;
+  --cf-amber: #f59e0b;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #a7f3d0;
+  color: #064e3b;
+}
+
+/* Slim scrollbars */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 8px;
+  border: 2px solid #f1f5f9;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Leaflet map pins */
+.cf-pin-wrap {
+  background: transparent;
+  border: none;
+}
+.cf-pin {
+  width: 30px;
+  height: 30px;
+  border-radius: 9999px;
+  background: var(--pin, #64748b);
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 14px rgba(2, 6, 23, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+.cf-pin:hover {
+  transform: scale(1.2);
+}
+.cf-pin-pick {
+  background: #059669;
+  animation: cf-pulse 1.6s ease-out infinite;
+}
+@keyframes cf-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(5, 150, 105, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(5, 150, 105, 0);
+  }
+}
+
+/* Leaflet popup polish */
+.leaflet-popup-content-wrapper {
+  border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(2, 6, 23, 0.22);
+}
+.leaflet-popup-content {
+  margin: 12px 14px;
+  font-family: inherit;
+}
+.leaflet-container {
+  font-family: inherit;
+  z-index: 0;
+}
+
+/* Recharts polish */
+.recharts-wrapper:focus,
+.recharts-surface:focus {
+  outline: none;
+}
+
+/* Line clamp helper (older tailwind fallback) */
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
